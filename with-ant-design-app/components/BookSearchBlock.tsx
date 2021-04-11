@@ -50,7 +50,22 @@ export const BookSearchBlock: React.FC<BookSearchBlockProps> = ({}) => {
           setAmountOfShownBooks(10);
         }}
       />
-      <Row gutter={85}>{data.length > 0 ? data : "Nothing Was Found"}</Row>
+      <Row gutter={85}>
+        {data.length > 0 ? (
+          data
+        ) : (
+          <div
+            style={{
+              fontFamily: "Roboto",
+              fontSize: "50px",
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          >
+            {`No Books Found :(`}
+          </div>
+        )}
+      </Row>
       {amountOfShownBooks > data.length ? null : (
         <motion.div
           whileHover={{ y: "-10%" }}
